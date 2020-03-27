@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bravery · Phoenix Framework</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+
+    <!-- Stylesheets -->
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/bootstrap.min.css") %>"/>
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/font-awesome.min.css") %>"/>
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/flaticon.css") %>"/>
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/slicknav.min.css") %>"/>
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/jquery-ui.min.css") %>"/>
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/owl.carousel.min.css") %>"/>
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/animate.css") %>"/>
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/style.css") %>"/>
+  </head>
+  <body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 text-center text-lg-left">
+						<!-- logo -->
+						<a href="./index.html" class="site-logo">
+							<img src="<%= Routes.static_path(@conn, "/images/logo.png") %>" alt="">
+						</a>
+					</div>
+					<div class="col-xl-6 col-lg-5">
+            <!--
+						<form class="header-search-form">
+							<input type="text" placeholder="Search on divisima ....">
+							<button><i class="flaticon-search"></i></button>
+						</form>
+          -->
+					</div>
+					<div class="col-xl-4 col-lg-5">
+						<div class="user-panel">
+							<div class="up-item">
+								<i class="flaticon-profile"></i>
+                <%= if @current_user do %>
+                <%= link "Sign out", to: Routes.session_path(@conn, :delete, @current_user), method: :delete %>
+                <% else %>
+                  <%= link "Sign in", to: Routes.session_path(@conn, :new) %>
+                <% end %> </ol>
+							</div>
+							<div class="up-item">
+								<div class="shopping-card">
+									<i class="flaticon-bag"></i>
+									<span>0</span>
+								</div>
+								<a href="#">Shopping Cart</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="main-navbar">
+			<div class="container">
+				<!-- menu -->
+				<ul class="main-menu">
+					<li><a href="/">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+					<li><a href="/merch">Merch</a></li>
+					<li><a href="#">Pages</a>
+						<ul class="sub-menu">
+							<li><a href="./product.html">Product Page</a></li>
+							<li><a href="./category.html">Category Page</a></li>
+							<li><a href="./cart.html">Cart Page</a></li>
+							<li><a href="./checkout.html">Checkout Page</a></li>
+							<li><a href="./contact.html">Contact Page</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Header section end -->
+
+  <%= render @view_module, @view_template, assigns %>
+
+	<!-- Footer section -->
+	<section class="footer-section">
+		<div class="container">
+			<div class="footer-logo text-center">
+				<a href="index.html"><img src="<%= Routes.static_path(@conn, "/images/logo-light.png") %>" alt=""></a>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-sm-12">
+					<div class="footer-widget about-widget">
+						<h2>About</h2>
+						<p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam frin-gilla faucibus urna, id dapibus erat iaculis ut. Integer ac sem.</p>
+						<img src="<%= Routes.static_path(@conn, "/images/cards.png") %>" alt="">
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="footer-widget about-widget">
+						<h2>Questions</h2>
+						<div class="fw-latest-post-widget">
+							<div class="lp-item">
+
+								<div class="lp-thumb set-bg" data-setbg="<%= Routes.static_path(@conn, "/images/blog-thumbs/1.jpg") %>"></div>
+								<div class="lp-content">
+									<h6>what shoes to wear</h6>
+									<span>Oct 21, 2018</span>
+									<a href="#" class="readmore">Read More</a>
+								</div>
+							</div>
+							<div class="lp-item">
+								<div class="lp-thumb set-bg" data-setbg="<%= Routes.static_path(@conn, "/images/blog-thumbs/2.jpg") %>"></div>
+								<div class="lp-content">
+									<h6>trends this year</h6>
+									<span>Oct 21, 2018</span>
+									<a href="#" class="readmore">Read More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="footer-widget contact-widget">
+						<h2>Questions</h2>
+						<div class="con-info">
+							<span>C.</span>
+							<p>Your Company Ltd </p>
+						</div>
+						<div class="con-info">
+							<span>B.</span>
+							<p>1481 Creekside Lane  Avila Beach, CA 93424, P.O. BOX 68 </p>
+						</div>
+						<div class="con-info">
+							<span>T.</span>
+							<p>+53 345 7953 32453</p>
+						</div>
+						<div class="con-info">
+							<span>E.</span>
+							<p>office@youremail.com</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="social-links-warp">
+			<div class="container">
+				<div class="social-links">
+					<a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+					<a href="" class="google-plus"><i class="fa fa-google-plus"></i><span>g+plus</span></a>
+					<a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+					<a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+					<a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+					<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+					<a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+				</div>
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+			</div>
+		</div>
+	</section>
+	<!-- Footer section end -->
+
+
+
+	<!--====== Javascripts & Jquery ======-->
+  <script src="<%= Routes.static_path(@conn, "/js/jquery-3.2.1.min.js") %>"></script>
+  <script src="<%= Routes.static_path(@conn, "/js/bootstrap.min.js") %>"></script>
+  <script src="<%= Routes.static_path(@conn, "/js/jquery.slicknav.min.js") %>"></script>
+  <script src="<%= Routes.static_path(@conn, "/js/owl.carousel.min.js") %>"></script>
+  <script src="<%= Routes.static_path(@conn, "/js/jquery.nicescroll.min.js") %>"></script>
+  <script src="<%= Routes.static_path(@conn, "/js/jquery.zoom.min.js") %>"></script>
+  <script src="<%= Routes.static_path(@conn, "/js/jquery-ui.min.js") %>"></script>
+  <script src="<%= Routes.static_path(@conn, "/js/main.js") %>"></script>
+  <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  
+
+	</body>
+  <!--
+
+  <body>
+    <header>
+      <section class="container">
+        <nav role="navigation">
+          <ul>
+            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+          </ul>
+        </nav>
+        <a href="http://phoenixframework.org/" class="phx-logo">
+          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
+        </a>
+      </section>
+    </header>
+    <main role="main" class="container">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+    </main>
+  </body>
+-->
+</html>
